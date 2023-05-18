@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div id="Home">
       <div className="intro">
-        <Typography>HEALTHY DELICIOUS RECIPES</Typography>
+        <Typography variant="h4" >HEALTHY DELICIOUS RECIPES</Typography>
       </div>
       <div className="food-hightlight">
         <Typography variant="h5">Popular Food</Typography>
