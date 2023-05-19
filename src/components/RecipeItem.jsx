@@ -30,12 +30,12 @@ const ExpandMore = styled((props) => {
 
 export default function RecipeItem({
   meal,
-  favoritesHandler,
+  /* favoritesHandler, */
   setFavoritesList,
   favoritesList,
 }) {
   const [expanded, setExpanded] = useState(false);
-  const [liked, setLiked] = useState(false);
+  /* const [liked, setLiked] = useState(false); */
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -46,23 +46,23 @@ export default function RecipeItem({
     setFavoritesList([...favoritesList, meal]);
     favoritesList.map((favItem) => {
       if (favItem.idMeal === mealId) {
-         setFavoritesList(favoritesList.filter((favItem) => favItem.idMeal !== mealId));
-         return setLiked(false);
+         return setFavoritesList(favoritesList.filter((favItem) => favItem.idMeal !== mealId));
+         /* return setLiked(false); */
         }
       else  {return null};
     })
   }
 
-  console.log(favoritesList);
+  console.log(favoritesList, "inRecipeItem");
   /* console.log(favoritesList.slice(0,favoritesList.length-1), "slice"); */
   
-  function likedHandler() {
+  /* function likedHandler() {
     if (liked === false) {
       setLiked(true);
     } else {
       setFavoritesList(favoritesList.filter(favItem => favItem.idMeal !== mealId))
     }
-  }
+  } */
 
   const {
     strIngredient1,
@@ -178,12 +178,16 @@ export default function RecipeItem({
         <CardActions disableSpacing>
           <IconButton
             onClick={() => {
-              favoritesHandler();
+              /* favoritesHandler(); */
               favListHandler();
-              likedHandler();
+              /* likedHandler(); */
             }}
             aria-label="add to favorites"
-            sx={liked ? { color: pink[500] } : null}
+            /* sx={favoritesList.includes(meal) ? { color: pink[500] } : { color: pink[50] }} */
+            sx={favoritesList?.map(item => {
+              if (mealId === item.idMeal) {return { color: pink[500] }}
+              else { return null};
+            } )}
           >
             <FavoriteIcon />
           </IconButton>

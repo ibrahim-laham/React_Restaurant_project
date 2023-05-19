@@ -5,10 +5,10 @@ import TextField from "@mui/material/TextField";
 
 import RecipeItem from "./RecipeItem";
 
-export default function Form({ setFavNumber, setFavoritesList, favoritesList }) {
+export default function Form({ /* setFavNumber, */ setFavoritesList, favoritesList }) {
   const [recipes, setRecipes] = useState({});
   const [userInput, setUserInput] = useState("");
-  const [favorites, setFavorites] = useState([]);
+  /* const [favorites, setFavorites] = useState([]); */
   async function getRecipes(url) {
     try {
       const response = await fetch(url);
@@ -32,11 +32,11 @@ export default function Form({ setFavNumber, setFavoritesList, favoritesList }) 
     setUserInput(event.target.value);
   }
 
-  function favoritesHandler() {
+  /* function favoritesHandler() {
     setFavorites([...favorites, "liked"]);
     setFavNumber(favorites.length + 1);
   }
-  console.log(favorites, "favorites");
+  console.log(favorites, "favorites"); */
 
   return (
     <div>
@@ -67,7 +67,7 @@ export default function Form({ setFavNumber, setFavoritesList, favoritesList }) 
                 meal.strMeal.toLowerCase().includes(userInput.toLowerCase())
               ) {
                 return (
-                  <RecipeItem meal={meal} favoritesHandler={favoritesHandler} setFavoritesList={setFavoritesList} favoritesList={favoritesList} />
+                  <RecipeItem meal={meal} /* favoritesHandler={favoritesHandler} */ setFavoritesList={setFavoritesList} favoritesList={favoritesList} />
                 );
               } else {
                 return null;

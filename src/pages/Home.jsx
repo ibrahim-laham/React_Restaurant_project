@@ -26,7 +26,6 @@ export default function Home() {
             <img src="./assets/cake.avif" alt="cake" />
           </div>
         </div>
-        {/* <Recipe/> */}
       </div>
       <Recipe/>
       <Contact/>

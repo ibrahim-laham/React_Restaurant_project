@@ -1,11 +1,11 @@
 import React from "react";
 
-import Form from "../components/Form"
+import Form from "../components/Form";
 
-export default function Recipe({setFavNumber, setFavoritesList, favoritesList}) {
+export default function Recipe({ setFavoritesList, favoritesList }) {
   return (
     <div>
-      <Form setFavNumber={setFavNumber} setFavoritesList={setFavoritesList} favoritesList={favoritesList} />
+      <Form setFavoritesList={setFavoritesList} favoritesList={favoritesList} />
     </div>
   );
 }

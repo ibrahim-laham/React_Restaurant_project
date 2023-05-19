@@ -4,15 +4,17 @@ import { Link } from "react-router-dom";
 import Typography from "@mui/material/Typography";
 import Badge from "@mui/material/Badge";
 
-export default function NavBar({favNumber}) {
-  console.log(favNumber, "favNumber");
+export default function NavBar({ favoritesList }) {
+  console.log(favoritesList, "favoritesList");
   return (
     <div className="nav-bar">
-      <div>
-        <Typography className="logo-container" variant="h4">
-          <img src="./assets/chef.png" alt="logo"></img>YUMMY
-        </Typography>
-      </div>
+      <Link to="/" style={{ textDecoration: "none", color: "firebrick" }}>
+        <div>
+          <Typography className="logo-container" variant="h4">
+            <img src="./assets/chef.png" alt="logo"></img>YUMMY
+          </Typography>
+        </div>
+      </Link>
       <div className="nav-item">
         <Link to="/" style={{ textDecoration: "none", color: "firebrick" }}>
           <div>
@@ -32,7 +34,7 @@ export default function NavBar({favNumber}) {
           style={{ textDecoration: "none", color: "firebrick" }}
         >
           <div>
-            <Badge badgeContent={favNumber} color="primary">
+            <Badge badgeContent={favoritesList.length} color="primary">
               <Typography variant="h6">FAVORITE</Typography>
             </Badge>
           </div>

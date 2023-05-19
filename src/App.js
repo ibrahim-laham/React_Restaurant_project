@@ -12,7 +12,7 @@ import Favorite from "./pages/Favorite";
 import Contact from "./pages/Contact";
 
 function App() {
-  const [favNumber, setFavNumber] = useState([]);
+  /* const [favNumber, setFavNumber] = useState([]); */
   const [favoritesList, setFavoritesList] = useState([]);
 
   const theme = createTheme({
@@ -37,10 +37,10 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <div className="App"  >
-        <NavBar favNumber={favNumber} />
+        <NavBar /* favNumber={favNumber} */  favoritesList={favoritesList} />
         <Routes>
           <Route path="/" element={<Home />}></Route>
-          <Route path="/recipe" element={<Recipe setFavNumber={setFavNumber} setFavoritesList={setFavoritesList} favoritesList={favoritesList} />}></Route>
+          <Route path="/recipe" element={<Recipe s/* etFavNumber={setFavNumber} */ setFavoritesList={setFavoritesList} favoritesList={favoritesList} />}></Route>
           <Route path="/favorite" element={<Favorite favoritesList={favoritesList} />}></Route>
           <Route path="contact" element={<Contact/>}></Route>
         </Routes>
