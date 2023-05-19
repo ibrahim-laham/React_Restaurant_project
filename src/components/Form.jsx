@@ -36,7 +36,7 @@ export default function Form({ setFavNumber, setFavoritesList, favoritesList }) 
     setFavorites([...favorites, "liked"]);
     setFavNumber(favorites.length + 1);
   }
-  console.log(favorites);
+  console.log(favorites, "favorites");
 
   return (
     <div>

@@ -15,7 +15,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
-import { pink } from '@mui/material/colors';
+import { pink } from "@mui/material/colors";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -41,14 +41,28 @@ export default function RecipeItem({
     setExpanded(!expanded);
   };
 
+  const mealId = meal.idMeal;
   function favListHandler() {
-    setFavoritesList([...favoritesList ,meal]);
+    setFavoritesList([...favoritesList, meal]);
+    favoritesList.map((favItem) => {
+      if (favItem.idMeal === mealId) {
+         setFavoritesList(favoritesList.filter((favItem) => favItem.idMeal !== mealId));
+         return setLiked(false);
+        }
+      else  {return null};
+    })
   }
 
-  function likedHandler () {
-    if (liked) {setLiked(false)}
-    else {setLiked(true)};
-  };
+  console.log(favoritesList);
+  /* console.log(favoritesList.slice(0,favoritesList.length-1), "slice"); */
+  
+  function likedHandler() {
+    if (liked === false) {
+      setLiked(true);
+    } else {
+      setFavoritesList(favoritesList.filter(favItem => favItem.idMeal !== mealId))
+    }
+  }
 
   const {
     strIngredient1,
@@ -119,7 +133,7 @@ export default function RecipeItem({
     { ingredient: strIngredient20, measure: strMeasure20 },
   ];
 
-  console.log(favoritesList);
+  /* console.log(favoritesList); */
   return (
     <div className="recipe-item">
       <Card sx={{ width: 450 }}>
@@ -169,7 +183,7 @@ export default function RecipeItem({
               likedHandler();
             }}
             aria-label="add to favorites"
-            sx={liked ? { color: pink[500] }: null}
+            sx={liked ? { color: pink[500] } : null}
           >
             <FavoriteIcon />
           </IconButton>
