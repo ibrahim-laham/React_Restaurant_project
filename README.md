@@ -49,4 +49,4 @@
 - You will need 3 states in this project
 - CSS:clip-path. Read more here: `https://developer.mozilla.org/en-US/docs/Web/CSS/clip-path`
 
-Deploy link here : 
+Deploy link here : https://main--shimmering-bonbon-b06d2e.netlify.app/
