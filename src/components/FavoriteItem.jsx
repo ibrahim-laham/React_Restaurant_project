@@ -14,7 +14,7 @@ export default function FavoriteItem({ item }) {
         </div>
       </div>
       <div className="favorite-img-container">
-        <img src={item.strMealThumb} />
+        <img src={item.strMealThumb} alt={item.strMealThumb} />
       </div>
     </div>
   );
