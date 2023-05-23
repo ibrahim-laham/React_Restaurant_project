@@ -28,14 +28,8 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function RecipeItem({
-  meal,
-  /* favoritesHandler, */
-  setFavoritesList,
-  favoritesList,
-}) {
+export default function RecipeItem({ meal, setFavoritesList, favoritesList }) {
   const [expanded, setExpanded] = useState(false);
-  /* const [liked, setLiked] = useState(false); */
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -46,23 +40,14 @@ export default function RecipeItem({
     setFavoritesList([...favoritesList, meal]);
     favoritesList.map((favItem) => {
       if (favItem.idMeal === mealId) {
-         return setFavoritesList(favoritesList.filter((favItem) => favItem.idMeal !== mealId));
-         /* return setLiked(false); */
-        }
-      else  {return null};
-    })
+        return setFavoritesList(
+          favoritesList.filter((favItem) => favItem.idMeal !== mealId)
+        );
+      } else {
+        return null;
+      }
+    });
   }
-
-  console.log(favoritesList, "inRecipeItem");
-  /* console.log(favoritesList.slice(0,favoritesList.length-1), "slice"); */
-  
-  /* function likedHandler() {
-    if (liked === false) {
-      setLiked(true);
-    } else {
-      setFavoritesList(favoritesList.filter(favItem => favItem.idMeal !== mealId))
-    }
-  } */
 
   const {
     strIngredient1,
@@ -133,7 +118,6 @@ export default function RecipeItem({
     { ingredient: strIngredient20, measure: strMeasure20 },
   ];
 
-  /* console.log(favoritesList); */
   return (
     <div className="recipe-item">
       <Card sx={{ width: 450 }}>
@@ -158,13 +142,13 @@ export default function RecipeItem({
           alt={meal.strMeal}
         />
         <CardContent>
-          <Typography variant="body2" color="text.secondary">
+          <Typography color="text.secondary">
             <Typography variant="h6">ingredients:</Typography>
             <ol>
               {ingredients.map((item, index) => {
                 if (item.ingredient !== "" && index < 3) {
                   return (
-                    <li>
+                    <li key={index}>
                       {item.ingredient}: {item.measure}
                     </li>
                   );
@@ -178,16 +162,16 @@ export default function RecipeItem({
         <CardActions disableSpacing>
           <IconButton
             onClick={() => {
-              /* favoritesHandler(); */
               favListHandler();
-              /* likedHandler(); */
             }}
             aria-label="add to favorites"
-            /* sx={favoritesList.includes(meal) ? { color: pink[500] } : { color: pink[50] }} */
-            sx={favoritesList?.map(item => {
-              if (mealId === item.idMeal) {return { color: pink[500] }}
-              else { return null};
-            } )}
+            sx={favoritesList?.map((item) => {
+              if (mealId === item.idMeal) {
+                return { color: pink[500] };
+              } else {
+                return null;
+              }
+            })}
           >
             <FavoriteIcon />
           </IconButton>
@@ -205,15 +189,15 @@ export default function RecipeItem({
         </CardActions>
         <Collapse in={expanded} timeout="auto" unmountOnExit>
           <CardContent>
-            <Typography variant="body2">
+            <Typography >
               <Typography variant="h6" color="firebrick">
                 All Ingredients:
               </Typography>
               <ol>
-                {ingredients.map((item) => {
+                {ingredients.map((item, index) => {
                   if (item.ingredient !== "") {
                     return (
-                      <li>
+                      <li key={index}>
                         {item.ingredient}: {item.measure}
                       </li>
                     );

@@ -5,9 +5,9 @@ import Typography from "@mui/material/Typography";
 import Badge from "@mui/material/Badge";
 
 export default function NavBar({ favoritesList }) {
-  console.log(favoritesList, "favoritesList");
   return (
     <div className="nav-bar">
+      
       <Link to="/" style={{ textDecoration: "none", color: "firebrick" }}>
         <div>
           <Typography className="logo-container" variant="h4">
@@ -15,12 +15,15 @@ export default function NavBar({ favoritesList }) {
           </Typography>
         </div>
       </Link>
+
       <div className="nav-item">
+       
         <Link to="/" style={{ textDecoration: "none", color: "firebrick" }}>
           <div>
             <Typography variant="h6">HOME</Typography>
           </div>
         </Link>
+
         <Link
           to="/recipe"
           style={{ textDecoration: "none", color: "firebrick" }}
@@ -29,6 +32,7 @@ export default function NavBar({ favoritesList }) {
             <Typography variant="h6">RECIPE</Typography>
           </div>
         </Link>
+        
         <Link
           to="/favorite"
           style={{ textDecoration: "none", color: "firebrick" }}
@@ -39,6 +43,7 @@ export default function NavBar({ favoritesList }) {
             </Badge>
           </div>
         </Link>
+        
         <Link
           to="/contact"
           style={{ textDecoration: "none", color: "firebrick" }}
@@ -47,7 +52,9 @@ export default function NavBar({ favoritesList }) {
             <Typography variant="h6">CONTACT</Typography>
           </div>
         </Link>
+
       </div>
+      
     </div>
   );
 }
