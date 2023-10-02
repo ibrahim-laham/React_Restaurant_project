@@ -1,9 +1,5 @@
 # React Project
 
-## How to run project
-
-1. Step 1: `yarn`
-2. Step 2: `yarn start`
 
 ## Requirements
 
@@ -13,20 +9,6 @@
 4. If the recipe is not found, display this message: `Sorry we have not got this recipe yet ! `
 5. The user can add their favorite by clicking the heart icon and the favorite recipes show in `Favorite` page.
 6. Styling had to be similar with the screenshot below
-
-## Screenshots
-
-1. Home page
-   ![homePage](./assets/home_page.png)
-
-2. Recipe page
-   ![recipePage](./assets/recipe_page.png)
-
-3. Favorite page
-   ![favoritePage](./assets/favorite_page.png)
-
-4. Contact page
-   ![contactPage](./assets/contact_page.png)
 
 ## Notes
 
